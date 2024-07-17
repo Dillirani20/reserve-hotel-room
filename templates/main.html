@@ -1,0 +1,162 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAIN PAGE</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+      .box:hover {
+          transform: scale(1.1);
+          transition: all 1s;
+
+      }
+  </style>
+
+</head>
+<body style="background-image: url('https://static.vecteezy.com/system/resources/previews/005/585/796/original/abstract-dark-purple-background-overlap-layer-on-dark-space-for-background-design-exclusive-wallpaper-design-for-poster-brochure-presentation-website-etc-vector.jpg');">
+
+
+    <header class="p-3 text-dark">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <img src="{% static 'logo.jpg'  %}" class="rounded shadow me-2" width="50px" height="50px" alt="logo">
+                <h3 class="display-8 fw-bold text-body-emphasis lh-1 mt-2 p-1 justify-content-center"> VIVANTA HOTELS</h3>
+            <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+          </a>
+    
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+           
+          </ul>
+    
+        
+    
+        </div>
+      </div>
+    </header>
+    
+    
+    
+    
+
+
+ <!-- Carousel -->
+
+ <div class="container p-3 shadow">
+
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+          <div class="carousel-item active">
+              <img src="https://t3.ftcdn.net/jpg/06/31/36/22/360_F_631362231_5VR8Eo0R8VEflgSIfl0RgQvzyW194T5c.jpg"
+                  class="d-block w-100" height="520px" width="350px" alt="...">
+                  <!-- <div class="carousel-caption d-none d-md-block">
+                    <h5 class="display-4 fw-bold text-body-emphasis mb-4">Swimming pool</h5>
+                    <p class="display-7 fw-bold text-body-emphasis mb-4">Enjoy in immersed pool</p>
+                  </div> -->
+          </div>
+          <div class="carousel-item">
+              <img src="https://costar.brightspotcdn.com/dims4/default/3abcbd0/2147483647/strip/true/crop/2100x1400+0+0/resize/2100x1400!/quality/100/?url=http%3A%2F%2Fcostar-brightspot.s3.us-east-1.amazonaws.com%2Fc3%2F8f%2F266e00a74ec28112ea6ed081780b%2Fox-oakox-check-in-at-the-bar-feature.jpg"
+                  class="d-block w-100" height="520px" width="350px" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://www.vivantahotels.com/content/dam/vivanta/hotels/image-audit/hi-res-sel/dining-vivanta-desktop.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg"
+                class="d-block w-100" height="520px" width="350px" alt="...">
+        </div>
+          <div class="carousel-item">
+              <img src="https://img.etimg.com/thumb/msid-96836017,width-1200,height-900,imgsize-120772,resizemode-8,quality-100/prime/corporate-governance/from-marriotts-to-hyatts-to-le-mridiens-premium-hotel-assets-are-stuck-at-bankruptcy-courts.jpg"
+                  class="d-block w-100" height="520px" width="350px" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://w0.peakpx.com/wallpaper/666/340/HD-wallpaper-restaurant-architecture-pretty-beautiful-modern-yachts-graphy-nice-city-luxury-harmony-hotel-exotic-cozy-lovely-view-arabic-design-skyscrapers-terrace-cool-oriental-interiors-style.jpg"
+                class="d-block w-100" height="520px" width="350px" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://media-cdn.tripadvisor.com/media/photo-m/1280/1a/9d/8a/ed/cygnett-inn-sea-view.jpg"
+              class="d-block w-100" height="520px" width="350px" alt="...">
+      </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+<!-- End Carousel -->
+ <hr>
+
+
+<h1 class="text-center">Our Hotels</h1>
+<form method="get" class="mx-auto text-center" action="{% url 'main' %}">
+  {{ form.as_p }}
+  <button type="submit">Search</button>
+</form>
+   
+
+
+<div class="container" >
+  <div class="row">
+      {% for i in hotels %}
+      <div class="col-12 text-center mb-4 d-flex p-3"  >
+          <div class="card mb-7 mx-auto p-3" style="max-width: 640px;">
+              <div class="row g-0">
+                  <div class="col-md-8 mx-auto ">
+                      <img src="{{i.room_image.url}}" class="img-fluid rounded" alt="{{ i.hotel_name }}">
+                       
+                  </div>
+                  <div class="col-md-8 text-center mx-auto">
+                      <div class="card-body mx-auto">
+                          <h2 class="card-title">{{ i.hotel_name }}</h2>
+                          <p class="card-text">{{ i.location }}</p>
+                          <p class="card-text">{{ i.room_spec }}</p>
+                          <p class="card-text">Type : {{ i.room }}</p>
+                          <p class = "card-title">Price : Rs. {{ i.hotel_price }} </p>
+                          <p class="card-title"> *Prices may vary</p>
+                          <a href="{% url 'register' i.id %}" class="btn btn-outline-info btn-lg">Book a
+                              Room</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+      {% endfor %}
+  </div>
+</div>
+
+
+
+<div class="container">
+  <footer class="py-3 my-4">
+    
+    <p class="text-center text-muted">&copy; The Indian Hotels Company Limited. All rights reserved.</p>
+  </footer>
+</div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    
+</body>
+</html>

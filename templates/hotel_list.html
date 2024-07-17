@@ -1,0 +1,28 @@
+<!-- hotel_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Management</title>
+</head>
+<body>
+    <h1>Hotel Management</h1>
+    <form method="get" action="{% url 'hotel_list' %}">
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Available Hotels</h2>
+    <ul>
+        {% for hotel in hotels %}
+            <li>
+                <h3>{{ hotel.name }}</h3>
+                <p>{{ hotel.location }}</p>
+                <p>{{ hotel.description }}</p>
+                <p>Price per night: ${{ hotel.price_per_night }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

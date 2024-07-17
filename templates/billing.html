@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing</title>
+
+    <script>
+        // This function will be called when the country dropdown changes
+        function updateStates(countryId) {
+            // Fetch states based on the selected country
+            fetch(`/get_states/${countryId}/`)
+                .then(response => response.json())
+                .then(data => {
+                    let stateDropdown = document.getElementById('state');
+                    stateDropdown.innerHTML = '<option value="">Select State</option>';
+                    data.states.forEach(state => {
+                        stateDropdown.innerHTML += `<option value="${state.id}">${state.name}</option>`;
+                    });
+                    // Clear the city dropdown
+                    document.getElementById('city').innerHTML = '<option value="">Select City</option>';
+                });
+        }
+
+        // This function will be called when the state dropdown changes
+        function updateCities(stateId) {
+            // Fetch cities based on the selected state
+            fetch(`/get_cities/${stateId}/`)
+                .then(response => response.json())
+                .then(data => {
+                    let cityDropdown = document.getElementById('city');
+                    cityDropdown.innerHTML = '<option value="">Select City</option>';
+                    data.cities.forEach(city => {
+                        cityDropdown.innerHTML += `<option value="${city.id}">${city.name}</option>`;
+                    });
+                });
+        }
+    </script>
+
+
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+
+<body class="text-align justify-content-center" >
+    {% csrf_token %}
+
+    <div class="container">
+        
+        <main>
+            <div class="py-5 text-center">
+                <img class="d-block mx-auto mb-4" src="{% static '4.png' %}" alt="" width="72" height="57">
+                <h2>Proceed to Payment</h2>
+
+            </div>
+
+            
+            
+
+            <div class="row g-5">
+                {% for i in hotels %}
+                <div class="col-md-5 col-lg-4 order-md-last">
+                    <!-- <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <p>Your Total Price <br> <span style="color:blue;font-weight:bold">Rs. {{ i.hotel_price }}</span>
+                        
+                    </h4> -->
+
+
+                </div>
+                {% endfor %}
+                <div class="col-md-7 col-lg-8">
+                    <h4 class="mb-3">1. Billing address</h4>
+                    <form action="{% url 'billing' %}" method="post" class="needs-validation" validate>
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">First name</label>
+                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder=""
+                                    value="" required>
+                                <div class="invalid-feedback">
+                                    Valid first name is required.
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="lastName" class="form-label">Last name</label>
+                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder=""
+                                    value="" required>
+                                <div class="invalid-feedback">
+                                    Valid last name is required.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="username" class="form-label">Username</label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text">@</span>
+                                    <input type="text" class="form-control" id="username" name="username"
+                                        value="{{ email }}" required>
+                                    <div class="invalid-feedback">
+                                        Your username is required.
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-12">
+                                <label for="address" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="address" name="address"
+                                    placeholder="1234 Main St" required>
+                                <div class="invalid-feedback">
+                                    Please enter your address.
+                                </div>
+                            </div>
+
+
+                            <div class="col-12">
+                                <label for="country" class="form-label">Country</label><br>
+                                <select id="country" name="country" onchange="updateStates(this.value)" required>
+                                    <br>
+                                <option value="">Select a Country</option>                               
+                                <option value="1">India</option>
+                                <option value="2">United States</option>
+                                <option value="3">China</option>
+                                </select>
+                            </div>
+                            
+
+                            <div class="col-12">
+                                <label for="state" class="form-label">State</label><br>
+                                <select id="state" name="state" onchange="updateCities(this.value)" required><br>
+                                    <option value="">Select State</option>
+                                    <option value="1">Andhra Pradesh</option>
+                                    <option value="1">Bihar</option>
+                                    <option value="1">Tamil Nadu</option>
+                                    <option value="1">Hong Kong</option>
+                                    <option value="1">New York</option>
+                                    <option value="1">North Carolina</option>
+                                    <option value="1">Texas</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="zip" class="form-label">Pin code</label><br>
+                                <input type="text" class="form-control" id="zip" name="zip" placeholder="600091" required>
+                                <div class="invalid-feedback">
+                                    Zip code required.
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="save-info">
+                            <label class="form-check-label" for="save-info">Save this information for next time</label>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <h4 class="mb-3">2. Payment Gateway</h4>
+                        <p class="text-dark" style="font-weight: 550; font-size: larger;"><u>Your Total Price: </u><br> <span style="color:rgb(220, 57, 62);font-weight:bold">Rs. {{ hotel_price }}</span>
+<br>
+                            <div class="form-check">
+                                <input id="paypal" name="paymentMethod" type="radio" value="credit"
+                                    class="form-check-input" required>
+                                <label class="form-check-label" for="paypal">Cash on Checkout</label>
+                            </div>
+                            
+                        </div>
+                        <input type="hidden" name="hotel_price" id="" value="{{hotel_price}}">
+
+                        <hr class="my-4">
+
+                        <button class="w-100 btn btn-danger btn-lg" type="submit">Continue to checkout</button>
+                        
+
+
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <footer class="my-5 pt-5 text-body-secondary text-center text-small">
+            <p class="mb-1">&copy; 2024 Company Name</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Privacy</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Support</a></li>
+            </ul>
+        </footer>
+    </div>
+</body>
+
+</html>

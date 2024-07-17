@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME PAGE</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+<body style="background-image: url('https://static.vecteezy.com/system/resources/previews/005/585/796/original/abstract-dark-purple-background-overlap-layer-on-dark-space-for-background-design-exclusive-wallpaper-design-for-poster-brochure-presentation-website-etc-vector.jpg');">
+
+
+<header class="p-3 text-dark">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <img src="{% static 'logo.jpg'  %}" class="rounded shadow me-2" width="50px" height="50px" alt="logo">
+            <h3 class="display-8 fw-bold text-body-emphasis lh-1 mt-2 p-1 justify-content-center"> VIVANTA HOTELS</h3>
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+      </a>
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+       
+      </ul>
+
+    
+
+      <div class="text-end">
+        <a href="{% url 'login' %}"> <button type="button" class="btn btn-outline-light me-2">Login</button></a>
+        <a href="{% url 'signup' %}"><button type="button" class="btn btn-warning">Sign-up</button></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+
+ <!-- Carousel -->
+
+ <div class="container ">
+
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+          <div class="carousel-item active">
+              <img src="https://www.luxuryabode.com/mona/img/hotels.jpg"
+                  class="d-block w-100" height="520px" width="350px" alt="...">
+          </div>
+          <div class="carousel-item">
+              <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?cs=srgb&dl=pexels-pixabay-258154.jpg&fm=jpg"
+                  class="d-block w-100" height="520px" width="350px" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG90ZWwlMjByb29tfGVufDB8fDB8fHww"
+                class="d-block w-100" height="520px" width="350px" alt="...">
+        </div>
+          <div class="carousel-item">
+              <img src="https://images.unsplash.com/photo-1625244724120-1fd1d34d00f6?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG90ZWxzfGVufDB8fDB8fHww"
+                  class="d-block w-100" height="520px" width="350px" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.bubbleup.com/width1920/quality35/mville2017/1-brand/1-margaritaville.com/gallery-media/220803-compasshotel-medford-pool-73868-1677873697-78625-1694019828.jpg"
+                class="d-block w-100" height="520px" width="350px" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://www.theparkhotels.com/images/site-specific/indore/home/banner-pic.jpg"
+              class="d-block w-100" height="520px" width="350px" alt="...">
+      </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+</div>
+<!-- End Carousel -->
+
+
+
+
+<div class="px-4 pt-5 my-5 text-center border-bottom">
+  <h1 class="display-4 fw-bold text-body-emphasis mb-4">VIVANTA HOTEL ROOM BOOKING
+  </h1>
+    <div class="col-lg-6 mx-auto">
+            <p class="lead">Vivanta's® Offical Website </p>
+          <p class="lead mb-4">Never Pay Full Price on Hotels — Best Prices Guaranteed with Deals on Discounts, Special Member Prices, Instant Coupons! Read Reviews from Verified Guests to Get the Real Story Before You Book Your Room!</p>
+          <p class="lead mb-4">Free cancellation available! | Discounts on clean hotels, homes & flights | Best price guarantee! | Over 20 Million reviews | Safe & secure.</p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+          <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3">Get Started</button>
+     </div>
+</div>
+  <div class="overflow-hidden" style="max-height: 100vh;">
+      <div class="container px-5">
+          <img src="{% static 'home.jpg' %}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
+              width="700" height="500" loading="lazy">
+      </div>
+  </div>
+
+
+
+
+<div class="overflow-hidden" >
+  <h1>OFFERS AND PROMOTIONS</h1><br><br>
+  
+  <div class="container px-6">
+    <div class="row ms-5">
+      <div class="col-4">
+        <div class="card" style="width: 20rem;">
+          <img src="{% static 'offers1.jpeg' %}" width="287px" height="280px"  class="card-img-top mb-8" margin-right="16px" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">LIMITED PERIOD ESCAPES</h5>
+            <p class="card-text">Limited Period Escapes only at Vivanta hotels</p>
+            <a href="{% url 'modals' %}" class="btn btn-outline-info btn-lg px-4 me-sm-3">View Details</a>
+          </div>
+       </div>
+     </div>
+    <div class="col-4">
+      <div class="card" style="width: 20rem;">
+        <img src="{% static 'offers2.jpeg' %}" width="287px" height="280px"  class="card-img-top mb-8" margin-right="16px" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">MEMBER EXCLUSIVE OFFERS</h5>
+            <p class="card-text">An exclusive offer for our exclusive members</p>
+            <a href="{% url 'modals2' %}" class="btn btn-outline-info btn-lg px-4 me-sm-3">View Details</a>
+          </div>
+      </div>
+
+    </div>
+    <div class="col-4">
+      <div class="card" style="width: 20rem;">
+        <img src="{% static 'offers3.jpeg' %}" width="287px" height="280px"  class="card-img-top mb-8" margin-right="16px" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">URBAN GETAWAYS</h5>
+            <p class="card-text">Treat your loved ones to a relaxing staycation.</p>
+            <a href="{% url 'modals3' %}" class="btn btn-outline-info btn-lg px-4 me-sm-3">View Details</a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+<br><br>
+
+  <div class="col-lg-6 mx-auto">
+    <h1>ABOUT VIVANTA</h1><br>
+    
+    <p class="lead">Vivanta represents a collection of sophisticated upscale hotels. The brand, promises to deliver experiences that are dynamic, spirited and unique with a dash of uniqueness and an unexpected twist – a perfect fit for contemporary travellers. </p>
+    <br>
+  </div>
+
+
+
+
+  <h1 class="mt-5">EXPERIENCE VIVANTA</h1><br><br>
+<div class="container px-6">
+  <div class="row ms-5">
+    <div class="col-4">
+      <div class="card" style="width: 20rem;">
+        <img src="{% static 'exp1.jpeg' %}" width="550px" height="350px"  class="card-img-top mb-8" margin-right="16px" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">24X7 check-in/check-out</h5>
+          <p class="card-text"> Now enjoy the convenience of checking into or out of our Vivanta hotels at any time 24X7 and personalize your stay just the way you like it to enjoy the hotels utmost.</p>
+          <a href="{% url 'exp1' %}" class="btn btn-outline-info btn-lg px-4 me-sm-3">View Details</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-4">
+      <div class="card" style="width: 20rem;">
+        <img src="{% static 'exp2.jpeg' %}" width="550px" height="350px"  class="card-img-top mb-8" margin-right="16px" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Pet Friendly Hotels</h5>
+          <p class="card-text">Man’s best friends are always welcome! All your family members, and we mean pets too, are in for a treat at Vivanta. Believe us when we say leave no one behind on a family vacation.</p>
+          <a href="{% url 'exp2' %}" class="btn btn-outline-info btn-lg px-4 me-sm-3">View Details</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-4">
+      <div class="card" style="width: 20rem;">
+        <img src="{% static 'exp3.jpeg' %}" width="550px" height="350px"  class="card-img-top mb-8" margin-right="16px" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Wellness In Your Room</h5>
+          <p class="card-text">Be energised and refreshed with amenities such as detox water, fruits, acupressure boards, and Yoga mats, all placed in the comfort of your room when you stay at a Vivanta.</p>
+          <a href="{% url 'exp3' %}" class="btn btn-outline-info btn-lg px-4 me-sm-3">View Details</a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <footer class="py-3 my-4">
+      <img src="data:image/jpeg;base64,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" width="80" height="80">
+      <p class="text-center text-muted">&copy; The Indian Hotels Company Limited. All Rights Reserved.</p>
+      <a href="#" class="btn btn-link btn-lg px-4 me-sm-3">Click to top </a>
+
+    </footer>
+  </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    
+</body>
+</html>
