@@ -27,8 +27,8 @@ from django.http import HttpResponse
 def send_email(email):
      smtp_server = 'smtp.gmail.com'
      smtp_port = 587
-     smtp_username = 'vivantahotelsboooking@gmail.com'  
-     smtp_password = 'fdxlnoreevrrfppq' 
+     smtp_username = '' #enter ur mail id  
+     smtp_password = '' #enter ur smtp pwd
 
      from_email = smtp_username
      to_email = email  # Replace with the recipient's email address
