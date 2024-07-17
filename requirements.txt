@@ -1,1 +1,14 @@
-code
+Install django using command:
+pip install django
+
+Install libraries:
+pip install Pillow
+
+Run the project:
+python manage.py runserver
+
+Run the project in Admin:
+1st create superuser using command - python manage.py createsuperuser
+
+Then open your project using this command in web browser:
+https://121..../admin
